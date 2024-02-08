@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS SAM CLI Nested Stack for Auto Dependency Layer Creation
+Metadata:
+  SamCliInfo: 1.109.0
+  key: AWS SAM CLI sync command
+Outputs:
+  MyServerlessFunctiond8905052DepLayer:
+    Value:
+      Ref: MyServerlessFunctiond8905052DepLayer
+Resources:
+  MyServerlessFunctiond8905052DepLayer:
+    Metadata:
+      CreatedBy: AWS SAM CLI sync command
+    Properties:
+      CompatibleRuntimes:
+      - nodejs14.x
+      ContentUri: /Users/jethin/Serverless-App-Deployment/.aws-sam/auto-dependency-layer/MyServerlessFunctiond8905052DepLayer
+      Description: Auto created layer for dependencies of function MyServerlessFunction
+      LayerName: MyServerlessAppb2441cc8-MyServerlessFunctiond8905052-DepLayer
+      RetentionPolicy: Delete
+    Type: AWS::Serverless::LayerVersion
+Transform: AWS::Serverless-2016-10-31

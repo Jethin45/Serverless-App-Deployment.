@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  MyServerlessFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.handler
+      Runtime: nodejs14.x
+      CodeUri: MyServerlessFunction
+      Layers:
+      - Fn::GetAtt:
+        - AwsSamAutoDependencyLayerNestedStack
+        - Outputs.MyServerlessFunctiond8905052DepLayer
+    Metadata:
+      SamResourceId: MyServerlessFunction
+  AwsSamAutoDependencyLayerNestedStack:
+    DeletionPolicy: Delete
+    Metadata:
+      CreatedBy: AWS SAM CLI sync command
+    Properties:
+      TemplateURL: /Users/jethin/Serverless-App-Deployment/.aws-sam/auto-dependency-layer/adl_nested_template.yaml
+    Type: AWS::CloudFormation::Stack

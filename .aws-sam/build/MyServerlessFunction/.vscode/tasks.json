@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Package",
+            "type": "shell",
+            "command": "sam",
+            "args": ["build", "--use-container"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Deploy to AWS",
+            "type": "shell",
+            "command": "sam",
+            "args": ["deploy", "--stack-name", "MyServerlessApp", "--region", "us-east-1", "--capabilities", "CAPABILITY_IAM"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

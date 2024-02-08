@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  MyServerlessFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.handler
+      Runtime: nodejs14.x
+      CodeUri: MyServerlessFunction
+    Metadata:
+      SamResourceId: MyServerlessFunction
